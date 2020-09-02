@@ -6,30 +6,20 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>837</width>
-    <height>639</height>
+    <width>874</width>
+    <height>558</height>
    </rect>
   </property>
   <property name="windowTitle">
-   <string>Dialog</string>
+   <string>Transferencia de Archivos</string>
   </property>
-  <widget class="QTableView" name="tableData">
-   <property name="geometry">
-    <rect>
-     <x>50</x>
-     <y>260</y>
-     <width>711</width>
-     <height>361</height>
-    </rect>
-   </property>
-  </widget>
   <widget class="QGroupBox" name="groupBox">
    <property name="geometry">
     <rect>
-     <x>50</x>
+     <x>30</x>
      <y>100</y>
-     <width>711</width>
-     <height>121</height>
+     <width>801</width>
+     <height>61</height>
     </rect>
    </property>
    <property name="title">
@@ -57,7 +47,7 @@
    <widget class="QLabel" name="label_2">
     <property name="geometry">
      <rect>
-      <x>420</x>
+      <x>340</x>
       <y>20</y>
       <width>91</width>
       <height>21</height>
@@ -73,33 +63,33 @@
      <string>MTU:</string>
     </property>
    </widget>
-   <widget class="QLineEdit" name="lineEdit">
+   <widget class="QLineEdit" name="txtSizeDatagram">
     <property name="geometry">
      <rect>
       <x>210</x>
       <y>20</y>
-      <width>151</width>
+      <width>111</width>
       <height>20</height>
      </rect>
     </property>
    </widget>
-   <widget class="QLineEdit" name="lineEdit_2">
+   <widget class="QLineEdit" name="txtMtu">
     <property name="geometry">
      <rect>
-      <x>480</x>
+      <x>390</x>
       <y>20</y>
-      <width>161</width>
+      <width>121</width>
       <height>20</height>
      </rect>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton">
+   <widget class="QPushButton" name="btnGenerate">
     <property name="geometry">
      <rect>
-      <x>230</x>
-      <y>70</y>
-      <width>81</width>
-      <height>41</height>
+      <x>550</x>
+      <y>10</y>
+      <width>101</width>
+      <height>31</height>
      </rect>
     </property>
     <property name="font">
@@ -112,13 +102,13 @@
      <string>Generar</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="pushButton_3">
+   <widget class="QPushButton" name="btnClean">
     <property name="geometry">
      <rect>
-      <x>330</x>
-      <y>70</y>
-      <width>81</width>
-      <height>41</height>
+      <x>670</x>
+      <y>10</y>
+      <width>111</width>
+      <height>31</height>
      </rect>
     </property>
     <property name="font">
@@ -135,16 +125,18 @@
   <widget class="QLabel" name="label_3">
    <property name="geometry">
     <rect>
-     <x>130</x>
-     <y>30</y>
-     <width>541</width>
+     <x>110</x>
+     <y>20</y>
+     <width>631</width>
      <height>51</height>
     </rect>
    </property>
    <property name="font">
     <font>
-     <family>Myanmar Text</family>
+     <family>Segoe Print</family>
      <pointsize>36</pointsize>
+     <weight>50</weight>
+     <bold>false</bold>
     </font>
    </property>
    <property name="text">
