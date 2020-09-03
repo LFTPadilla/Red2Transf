@@ -5,6 +5,8 @@ from PyQt5.QtGui import QFont, QIcon, QColor
 from PyQt5.QtCore import Qt
 from PyQt5.QtWidgets import (QApplication, QDialog, QPushButton, QTableWidget,
                              QTableWidgetItem, QAbstractItemView, QHeaderView, QMenu,QActionGroup, QAction, QMessageBox)
+import back
+
 
 
 # Cargar la interfaz
@@ -35,18 +37,7 @@ class MyApp(QtWidgets.QMainWindow, Ui_MainWindow):
         datagram = self.txtSizeDatagram.text()
         print(mtu,datagram)
 
-        datos = [("test1","test2", "Andres", "Niño", "Masculino", "06/12/2019", "Colombia"),
-                 ("test1","test2", "Donald", "Trump", "Masculino", "06/12/1950", "Estados Unidos"),
-                 ("test1","test2", "María Fernanda", "Espinosa", "Femenino", "06/10/1980", "Ecuador"),
-                 ("test1","test2", "Alberto", "Canosa", "Masculino", "04/05/1876", "España"),
-                 ("test1","test2", "Virtud", "Pontes", "Femenino", "23/18/1965", "España"),
-                 ("test1","test2", "Elon", "Musk", "Masculino", "06/12/1960", "Estados Unidos"),
-                 ("test1","test2", "Richard", "Branson", "Masculino", "14/12/1956", "Reino Unido"),
-                 ("test1","test2", "Gabriel", "Garcia Marquez", "Masculino", "19/11/1948", "Colombia"),
-                 ("test1","test2", "Valentina", "Tereshkova", "Femenino", "06/03/1937", "Rusia"),
-                 ("test1","test2", "Artur", "Fischer", "Masculino", "31/12/1919", "Alemania"),
-                 ("test1","test2", "Grace", "Murray Hopper", "Femenino", "09/12/1906", "Estados Unidos"),
-                 ("test1","test2", "Guido van", "Rossum", "Masculino", "31/01/1956", "Países Bajos")]
+        datos = back.generate_fragments(datagram, mtu)
 
         self.tabla.clearContents()
 
