@@ -41,6 +41,9 @@ class MyApp(QtWidgets.QMainWindow, Ui_MainWindow):
 
         self.tabla.clearContents()
 
+        if datos is None:
+            return
+
         row = 0
         for endian in datos:
             self.tabla.setRowCount(row + 1)
@@ -109,7 +112,7 @@ class MyApp(QtWidgets.QMainWindow, Ui_MainWindow):
         
         # self.tabla.verticalHeader().setHighlightSections(True)
 
-        nombreColumnas = ( "Longitud fragmento", "0","DF","MF","Offset en binario","Offset en decimal", "4 hexa (16 bits)")
+        nombreColumnas = ( "Longitud total", "0","DF","MF","Offset en binario","Offset en decimal", "4 hexa (16 bits)")
 
         # Establecer las etiquetas de encabezado horizontal usando etiquetas
         self.tabla.setHorizontalHeaderLabels(nombreColumnas)
