@@ -20,7 +20,10 @@ def generate_fragments(datagram_size, mtu):
 	mtu = int(mtu)
 
 	# Validación verifica que los datos sean mayores a 0
-	if datagram_size < 21 or (mtu < 28 or (mtu - 20) % 8 != 0):
+	# if datagram_size < 21 or (mtu < 28 or (mtu - 20) % 8 != 0):
+	#	return 
+
+	if datagram_size < 21 or mtu < 21:
 		return 
 
 	table = []

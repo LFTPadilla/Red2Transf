@@ -35,7 +35,6 @@ class MyApp(QtWidgets.QMainWindow, Ui_MainWindow):
     def GenerateTable(self):
         mtu = self.txtMtu.text()
         datagram = self.txtSizeDatagram.text()
-        print(mtu,datagram)
 
         datos = back.generate_fragments(datagram, mtu)
 
