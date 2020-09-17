@@ -12,9 +12,7 @@ def generate_fragments(datagram_size, mtu):
 	5. Los	cuatro	dígitos	hexadecimales	que	representan	los	16	bits
 	'''
 	
-	# Validación, verifica que los datos sean numericos
-	if datagram_size.isnumeric() == False or mtu.isnumeric() == False:
-		return 
+	
 
 	datagram_size = int(datagram_size)
 	mtu = int(mtu)

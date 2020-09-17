@@ -16,7 +16,7 @@ Ui_MainWindow, QtBaseClass = uic.loadUiType(qtCreatorFile)
 
 
 class MyApp(QtWidgets.QMainWindow, Ui_MainWindow):
-    # Metodo constructor que inicializa todos los controles de la interfaz.
+    # Metodo constructor que inicializa todos los controles de la interfaz. 
     def __init__(self):
         QtWidgets.QMainWindow.__init__(self)
         Ui_MainWindow.__init__(self)
@@ -36,12 +36,28 @@ class MyApp(QtWidgets.QMainWindow, Ui_MainWindow):
         mtu = self.txtMtu.text()
         datagram = self.txtSizeDatagram.text()
 
+
+
+
+
+
+        # Validación, verifica que los datos sean numericos
+        if datagram.isnumeric() == False or mtu.isnumeric() == False:
+            ms = 'Los datos ingresados son erroneos. Solo se aceptan valores numericos.'
+            self.msgError.setText(ms)
+            self.CleanData()
+            return
+        
+        self.msgError.setText('')
+        
         datos = back.generate_fragments(datagram, mtu)
 
-        self.tabla.clearContents()
-
         if datos is None:
+            ms = 'Inconsistencia en los datos. Por favor verifique.'
+            self.msgError.setText(ms)
             return
+
+        self.tabla.clearContents()
 
         row = 0
         for endian in datos:
@@ -58,68 +74,47 @@ class MyApp(QtWidgets.QMainWindow, Ui_MainWindow):
             self.tabla.setItem(row, 5, QTableWidgetItem(endian[5]))
             self.tabla.setItem(row, 6, QTableWidgetItem(endian[6]))
             row += 1
-
+    
+    #Construir la tabla
     def InitTable(self):
         self.tabla = QTableWidget(self)
-
         # Deshabilitar edición
         self.tabla.setEditTriggers(QAbstractItemView.NoEditTriggers)
-
         # Deshabilitar el comportamiento de arrastrar y soltar
         self.tabla.setDragDropOverwriteMode(False)
-
         # Seleccionar toda la fila
         self.tabla.setSelectionBehavior(QAbstractItemView.SelectRows)
-
         # Seleccionar una fila a la vez
         self.tabla.setSelectionMode(QAbstractItemView.SingleSelection)
-
         # Especifica dónde deben aparecer los puntos suspensivos "..." cuando se muestran
         # textos que no encajan
         self.tabla.setTextElideMode(Qt.ElideRight)# Qt.ElideNone
-
         # Establecer el ajuste de palabras del texto 
         self.tabla.setWordWrap(False)
-
         # Deshabilitar clasificación
         self.tabla.setSortingEnabled(False)
-
         # Establecer el número de columnas
         self.tabla.setColumnCount(7)
-
         # Establecer el número de filas
         self.tabla.setRowCount(0)
-
         # Alineación del texto del encabezado
-        self.tabla.horizontalHeader().setDefaultAlignment(Qt.AlignHCenter|Qt.AlignVCenter|
-                                                          Qt.AlignCenter)
-
+        self.tabla.horizontalHeader().setDefaultAlignment(Qt.AlignHCenter|Qt.AlignVCenter|Qt.AlignCenter)
         # Deshabilitar resaltado del texto del encabezado al seleccionar una fila
         self.tabla.horizontalHeader().setHighlightSections(False)
-
         # Hacer que la última sección visible del encabezado ocupa todo el espacio disponible
         self.tabla.horizontalHeader().setStretchLastSection(True)
-
         # Ocultar encabezado vertical
         self.tabla.verticalHeader().setVisible(False)
-
         # Dibujar el fondo usando colores alternados
         self.tabla.setAlternatingRowColors(True)
-
         # Establecer altura de las filas
-        self.tabla.verticalHeader().setDefaultSectionSize(20)
-        
+        self.tabla.verticalHeader().setDefaultSectionSize(20)        
         # self.tabla.verticalHeader().setHighlightSections(True)
-
-        nombreColumnas = ( "Longitud total", "0","DF","MF","Offset en binario","Offset en decimal", "4 hexa (16 bits)")
-
+        nombreColumnas = ( "Longitud fragmento", "0","DF","MF","Offset en binario","Offset en decimal", "4 hexa (16 bits)")
         # Establecer las etiquetas de encabezado horizontal usando etiquetas
-        self.tabla.setHorizontalHeaderLabels(nombreColumnas)
-        
+        self.tabla.setHorizontalHeaderLabels(nombreColumnas)        
         # Menú contextual
         self.tabla.setContextMenuPolicy(Qt.CustomContextMenu)
-        
-        
         # Establecer ancho de las columnas
         for indice, ancho in enumerate((170, 40,40,40, 160, 160, 160), start=0):
             self.tabla.setColumnWidth(indice, ancho)
@@ -127,7 +122,6 @@ class MyApp(QtWidgets.QMainWindow, Ui_MainWindow):
         self.tabla.resize(800, 350)
         self.tabla.move(33, 180)
 
-        
         row = 0
         for endian in range(15):
             self.tabla.setRowCount(row + 1)
@@ -145,7 +139,6 @@ class MyApp(QtWidgets.QMainWindow, Ui_MainWindow):
             row += 1
 
   
-
 
 # Inicialización de la aplicación gráfica
 if __name__ == "__main__":

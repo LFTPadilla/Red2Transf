@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>874</width>
-    <height>558</height>
+    <height>585</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -141,6 +141,28 @@
    </property>
    <property name="text">
     <string>Transferencia de archivos</string>
+   </property>
+  </widget>
+  <widget class="QLabel" name="msgError">
+   <property name="geometry">
+    <rect>
+     <x>40</x>
+     <y>540</y>
+     <width>811</width>
+     <height>41</height>
+    </rect>
+   </property>
+   <property name="font">
+    <font>
+     <family>Myanmar Text</family>
+     <pointsize>13</pointsize>
+     <weight>50</weight>
+     <italic>false</italic>
+     <bold>false</bold>
+    </font>
+   </property>
+   <property name="text">
+    <string/>
    </property>
   </widget>
  </widget>
